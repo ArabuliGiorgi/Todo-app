@@ -12,7 +12,10 @@ const Main = styled.div<{argument: string}>`
   background-repeat: no-repeat;
   background-size: 100% 200px;
   background-position: 50% 0;
-  background-color: #FAFAFA;
+  background-color: ${(props) => (props.argument=="true" ? '#171823' : '#FAFAFA')};
+  display: flex;
+  align-items: start;
+  justify-content: center;
 
   .header{
     width: 100%;
@@ -42,6 +45,7 @@ const Main = styled.div<{argument: string}>`
     display: flex;
     align-items: center;
     justify-content: start;
+    margin-bottom: 16px;
     gap: 12px;
 
     .circle{
@@ -93,6 +97,15 @@ const Main = styled.div<{argument: string}>`
         text-align: left;
         color: ${(props) => props.argument=="true" ? '#9495A5' : '#767992' };
     }
+  }
+  .footer{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: -0.19px;
+    text-align: center;
+    color: ${(props) => props.argument=="true" ? '#5B5E7E' : '#9495A5' };
+    margin-top: 40px;
   }
 
   @media only screen and (min-width: 500px){
