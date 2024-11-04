@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Main} from './styled-components/Main-div.tsx'
+import {Main} from './styled-components/AppStyle.tsx'
 import Sun from '/images/icon-sun.svg'
 import Moon from '/images/icon-moon.svg'
 import CheckIcon from '/images/icon-check.png'
@@ -55,7 +55,7 @@ function App() {
         complete: check,
         id: Math.random()
       }
-      setTodos((prevTodos) => [...prevTodos, newTodo])
+      setTodos((prevTodos) => [newTodo, ...prevTodos])
       event.currentTarget.value = "";
       setCheck(false);
     }

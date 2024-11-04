@@ -21,6 +21,22 @@ const TodosDiv = styled.div<{argument: string}>`
             letter-spacing: -0.17px;
             color: ${(props) => props.argument=="true" ? '#5B5E7E' : '#9495A5' };
         }
+        .clear:hover{
+            cursor: pointer;
+            color: ${(props) => props.argument=="true" ? '#E3E4F1' : '#494C6B' };
+        }
+    }
+
+    @media only screen and (min-width: 720px){
+        .todos-info{
+            padding: 16px 24px 0;
+
+            h1{
+                font-size: 14px;
+                line-height: 14px;
+                letter-spacing: -0.19px;
+            }
+        }
     }
 `
 const ListView = styled.div<{view: string, argument: string}>`
@@ -44,11 +60,30 @@ const ListView = styled.div<{view: string, argument: string}>`
     .all{
         color: ${(props) => props.view === "all" ? '#3A7CFD' : props.argument === "true" ? '#5B5E7E' : '#9495A5'};
     }
+    .all:hover{
+        cursor: ${(props) => props.view === "all" ? 'default' : 'pointer'};
+        color: ${(props) => props.view === "all" ? '#3A7CFD' : props.argument === "true" ? '#E3E4F1' : '#494C6B'};
+    }
     .active{
         color: ${(props) => props.view === "active" ? '#3A7CFD' : props.argument === "true" ? '#5B5E7E' : '#9495A5'};
     }
+    .active:hover{
+        cursor: ${(props) => props.view === "active" ? 'default' : 'pointer'};
+        color: ${(props) => props.view === "active" ? '#3A7CFD' : props.argument === "true" ? '#E3E4F1' : '#494C6B'};
+    }
     .completed{
         color: ${(props) => props.view === "completed" ? '#3A7CFD' : props.argument === "true" ? '#5B5E7E' : '#9495A5'};
+    }
+    .completed:hover{
+        cursor: ${(props) => props.view === "completed" ? 'default' : 'pointer'};
+        color: ${(props) => props.view === "completed" ? '#3A7CFD' : props.argument === "true" ? '#E3E4F1' : '#494C6B'};
+    }
+
+    @media only screen and (min-width: 720px){
+        padding: 0;
+        margin-top: -34px;
+        box-shadow: none;
+        background-color: transparent;
     }
 `
 

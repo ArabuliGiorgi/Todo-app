@@ -33,6 +33,7 @@ const Main = styled.div<{argument: string}>`
     }
     img{
         height: 20px;
+        cursor: pointer;
     }
   }
   form{
@@ -56,6 +57,9 @@ const Main = styled.div<{argument: string}>`
         border-radius: 50%;
         box-sizing: border-box;
     }
+    .circle:hover{
+      cursor: pointer;
+    }
     .circle:hover::before {
         content: '';
         position: absolute;
@@ -71,6 +75,9 @@ const Main = styled.div<{argument: string}>`
         position: absolute;
         width: 18px;
         height: 18px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background-color: ${(props) => props.argument=="true" ? '#25273D' : '#FFFFFF' };
         border-radius: 50%;
     }
@@ -111,6 +118,53 @@ const Main = styled.div<{argument: string}>`
   @media only screen and (min-width: 500px){
     background-image: url(${(props) => (props.argument=="true" ? desktop_darkBG : desktop_lightBG)});
     background-size: 1440px 300px;
+  }
+
+  @media only screen and (min-width: 720px){
+    padding: 70px 0 52px;
+
+    .header{
+      h1{
+          font-size: 40px;
+          letter-spacing: 15px;
+          line-height: 40px;
+      }
+      img{
+          height: 26px;
+      }
+    }
+    form{
+      height: 64px;
+      padding: 0 24px;
+      margin-bottom: 24px;
+      gap: 24px;
+
+      .circle{
+          width: 24px;
+          height: 24px;
+      }
+      .circle:hover::after{
+          content: '';
+          width: 22px;
+          height: 22px;
+      }
+      img{
+          width: 24px;
+      }
+      input{
+          font-size: 18px;
+          line-height: 18px;
+          letter-spacing: -0.25px;
+      }
+      input::placeholder{
+          font-size: 18px;
+          line-height: 18px;
+          letter-spacing: -0.25px;
+      }
+    }
+    .footer{
+      margin-top: 49px;
+    }
   }
 `
 

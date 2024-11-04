@@ -1,6 +1,6 @@
 import {Todo} from '../App';
 import React, { useState } from 'react';
-import {TodosDiv, ListView} from '../styled-components/todos';
+import {TodosDiv, ListView} from '../styled-components/todosListStyle';
 import SingleTodo from './singleTodo';
 
 const TodoList: React.FC<{
@@ -36,7 +36,7 @@ const TodoList: React.FC<{
                 ))}
                 <div className="todos-info">
                     <h1>{counter} items left</h1>
-                    <h1 onClick={handleClear}>Clear Completed</h1>
+                    <h1 onClick={handleClear} className='clear'>Clear Completed</h1>
                 </div>
             </TodosDiv>
             <ListView view={listView} argument={darkMode}>
