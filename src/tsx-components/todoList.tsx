@@ -9,14 +9,14 @@ const TodoList: React.FC<{
     darkMode: string
 }> = ({todos, setTodos, darkMode}) => {
     const [listView, setListView] = useState<string>('all');
-    const counter = todos.filter((todo) => {
+    const filteredArray = todos.filter((todo) => {
         if(listView === 'all')
             return todo;
         else if(listView === 'active')
             return !todo.complete;
         else
             return todo.complete;
-    }).length;
+    });
     const handleClear = () => {
         setTodos((prevTodos) => prevTodos.filter((obj) => !obj.complete));
     }
@@ -24,18 +24,11 @@ const TodoList: React.FC<{
     return(
         <>
             <TodosDiv argument={darkMode}>
-                {todos.filter((single) => {
-                    if(listView === 'all')
-                        return single;
-                    else if(listView === 'active')
-                        return !single.complete;
-                    else
-                        return single.complete;
-                }).map((single) => (
+                {filteredArray.map((single) => (
                     <SingleTodo todo={single} setTodos={setTodos} key={single.id} darkMode={darkMode}></SingleTodo>
                 ))}
                 <div className="todos-info">
-                    <h1>{counter} items left</h1>
+                    <h1>{filteredArray.length} items left</h1>
                     <h1 onClick={handleClear} className='clear'>Clear Completed</h1>
                 </div>
             </TodosDiv>

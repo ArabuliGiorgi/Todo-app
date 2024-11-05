@@ -4,6 +4,7 @@ import Sun from '/images/icon-sun.svg'
 import Moon from '/images/icon-moon.svg'
 import CheckIcon from '/images/icon-check.png'
 import TodoList from './tsx-components/todoList.tsx'
+import data from './todos.json';
 
 export interface Todo{
   text: string,
@@ -14,38 +15,7 @@ export interface Todo{
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [check, setCheck] = useState(false);
-  const [todos, setTodos] = useState<Todo[]>([
-    {
-      text: "Complete online JavaScript course",
-      complete: true,
-      id: 1
-    },
-    {
-      text: "Jog around the park 3x",
-      complete: false,
-      id: 2
-    },
-    {
-      text: "10 minutes meditation",
-      complete: false,
-      id: 3
-    },
-    {
-      text: "Read for 1 hour",
-      complete: false,
-      id: 4
-    },
-    {
-      text: "Pick up groceries",
-      complete: false,
-      id: 5
-    },
-    {
-      text: "Complete Todo App on Frontend Mentor",
-      complete: false,
-      id: 6
-    }
-  ]);
+  const [todos, setTodos] = useState<Todo[]>(data);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
